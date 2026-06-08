@@ -22,6 +22,7 @@
 #include "Common.h"
 #include "LFG/LFGDefines.h"
 #include "Entities/ObjectGuid.h"
+#include "Entities/Position.h"
 #include "Globals/SharedDefines.h"
 #include "Multithreading/Messager.h"
 

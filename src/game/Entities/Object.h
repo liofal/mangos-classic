@@ -25,6 +25,7 @@
 #include "Entities/UpdateFields.h"
 #include "Entities/UpdateData.h"
 #include "Entities/ObjectGuid.h"
+#include "Entities/Position.h"
 #include "Entities/EntitiesMgr.h"
 #include "Globals/SharedDefines.h"
 #include "Globals/Locales.h"
@@ -304,26 +305,6 @@ class CooldownContainer
         spellIdMap m_spellIdMap;
         categoryMap m_categoryMap;
 };
-
-struct Position
-{
-    Position() : x(0.0f), y(0.0f), z(0.0f), o(0.0f) {}
-    Position(float _x, float _y, float _z, float _o) : x(_x), y(_y), z(_z), o(_o) {}
-    Position(float _x, float _y, float _z) : x(_x), y(_y), z(_z), o(0.f) {}
-    float x, y, z, o;
-    float GetPositionX() const { return x; }
-    float GetPositionY() const { return y; }
-    float GetPositionZ() const { return z; }
-    float GetPositionO() const { return o; }
-    bool IsEmpty() const { return x == 0.f && y == 0.f && z == 0.f; }
-    float GetAngle(const float x, const float y) const;
-    float GetDistance(Position const& other) const; // WARNING: Returns squared distance for performance reasons
-    float GetDistance2d(Position const& other) const; // WARNING: Returns squared distance for performance reasons
-    void RelocateOffset(Position const& offset);
-    std::string to_string() const;
-};
-
-bool operator!=(const Position& left, const Position& right);
 
 struct WorldLocation
 {
