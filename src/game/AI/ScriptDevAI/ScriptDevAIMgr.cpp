@@ -520,6 +520,10 @@ void ScriptDevAIMgr::LoadScriptNames()
 
 void ScriptDevAIMgr::CheckScriptNames()
 {
+#ifndef BUILD_SCRIPTDEV
+    return;
+#endif
+
     // Check existence scripts for all registered by core script names
     for (uint32 i = 1; i < GetScriptIdsCount(); ++i)
     {

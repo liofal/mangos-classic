@@ -233,10 +233,12 @@ struct RockbiterWeaponSelector : public SpellScript
 
 void LoadShamanScripts()
 {
+#ifdef BUILD_SCRIPTDEV
     Script* pNewScript = new Script;
     pNewScript->Name = "npc_sentry_totem";
     pNewScript->GetAI = &GetNewAIInstance<SentryTotemAI>;
     pNewScript->RegisterSelf();
+#endif
 
     RegisterSpellScript<SentryTotem>("spell_sentry_totem");
     RegisterSpellScript<HealingWay>("spell_healing_way");
