@@ -167,6 +167,9 @@ namespace MMAP
 
     void MMapManager::loadAllMapTiles(std::string const& basePath, uint32 mapId)
     {
+        if (!IsEnabled())
+            return;
+
         auto itr = loadedMMaps.find(mapId);
         MANGOS_ASSERT(itr != loadedMMaps.end());
         const auto& mmapData = itr->second;
@@ -197,6 +200,9 @@ namespace MMAP
 
     bool MMapManager::loadMap(std::string const& basePath, uint32 mapId, int32 x, int32 y)
     {
+        if (!IsEnabled())
+            return false;
+
         // get this mmap data
         auto itr = loadedMMaps.find(mapId);
         MANGOS_ASSERT(itr != loadedMMaps.end()); // must not occur here as it would not be thread safe - only in loadMapData through loadMapInstance
